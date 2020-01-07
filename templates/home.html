@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Welcome{% endblock %}
+{% block menu-active-daily-task %}active{% endblock %}
+{% block menu-active-daily-dashboard %}{% endblock %}
+
+{% block content %}
+<div class="row">
+  {% if daily_task_done %}
+  <h2 class="text-center">Check back tomorrow for the next task.</h2>
+  {% else %}
+  <div class="col">
+    <section class="card">
+      <h3 class="text-center select-category-title">Ready for your daily task?</h3>
+      <div class="card-body text-secondary">
+          <div class="button-group-category text-center">
+              <a href="{% url 'traffic' %}">
+                  <button class="btn btn-primary fixed-button-width-category " type="button">Start Task</button>
+              </a>
+          </div>
+      </div>
+    </section>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
